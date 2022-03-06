@@ -1,0 +1,38 @@
+{% extends 'home.html' %}
+
+{% block content %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>name</th>
+            <th>no of page</th>
+            <th>author</th>
+            <th>price</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for book in books %}
+        <tr>
+            <td>{{book.name}}</td>
+            <td>{{book.no_page}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.price}}</td>
+            <td>
+                <a href="{% url 'edit_books' book.id %}">
+                    <button type="submit" class="btn btn-warning">Edit</button>
+                </a>
+            </td>
+            <td>
+                <a href="{% url 'delete_books' book.id %}">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

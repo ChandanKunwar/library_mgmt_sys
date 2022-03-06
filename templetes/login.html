@@ -1,0 +1,17 @@
+{% extends 'home.html'%}
+
+{% block content %}
+
+<form action="#" method="POST">
+    {% csrf_token %}
+    <input type="text" name=username placeholder="enter username">
+    <input type="password" name=password placeholder="enter password">
+
+    <button type="submit" class="btn btn-primary">submit</button>
+</form>
+
+{% for message in messages %}
+<h3>{{message}}</h3>
+{% endfor %}
+
+{% endblock %}
